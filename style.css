@@ -1,0 +1,251 @@
+/*
+freeCodeCamp 'Responsive Web Design' project
+
+Task: Create a survey form
+Tests: The project has 16 requirements (user stories)
+    Include:
+    1 - An <h1> element with an id of 'title'.
+    2 - A <p> element with an id of 'description'.
+    3 - A <form> element with an id of 'survey-form'.
+    4 - An input element with an id of 'name'.
+    5 - An input element with an id of 'email'.
+    6 - The email element should only accept emails formatted correctly.
+    7 - An input element with an id of 'number' and takes number input.
+    8 - Above input element only accepts numeric values.
+    9 - Above input element only accepts values between min and max attributes.
+    10 - Give the input element above an if of 'name-label', 'email-label' and 'number-label'.
+    11 - Give name, email and number elements a placeholder text.
+    12 - An select element with an id of 'dropdown'.
+    13 - One or more radio buttons.
+    14 - A series of checkboxes each with a value attribute.
+    15 - A textarea at the end of the form.
+    16 - A button with an id of 'submit'.     
+
+Completion: Submit URL to working projects with all tests passing.
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+        0.  Global Setup
+        1.  Page Header
+        2.  Form Element
+        3.  Attributes
+----------------------------------------------------------------*/
+
+/*-------------------------------------------------------------
+    0. Global Setup
+---------------------------------------------------------------*/
+
+:root {
+    --primary-colour: rgb(33, 33, 33);
+    --secondary-colour: white;
+    --btn-colour: #37af65;
+    --font-default: 'Oswald', sans-serif ;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-default);
+}
+
+
+/*-------------------------------------------------------------
+    1.  Page Header
+---------------------------------------------------------------*/
+
+#title {
+    margin-bottom: 1.5%;
+
+    text-align: center;
+    font-size: 2.5rem;
+    font-family: var(--font-default);
+    text-transform: uppercase;
+    text-shadow: 0 0 5px black;
+}
+
+#description {
+    text-align: center;
+    line-height: 1.25;
+
+    font-size: 1.25rem;
+    font-family: var(--font-default);
+    font-style: italic;
+    text-shadow: 0 0 5px black;
+}
+
+/* Can't use body for parallax */
+.wrapper {
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    perspective: 10px;
+}
+
+.header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    transform-style: preserve-3d;
+    z-index: -1;
+}
+
+.background, .foreground {
+    position: absolute;
+    height: 100%;
+    width: 100vw;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.background {
+    transform: translateZ(-10px) scale(2);
+    opacity: 0.75;
+}
+
+.foreground {
+    transform: translateZ(-5px) scale(1.5);
+}
+
+.content {
+    width: 75%;
+    padding: 1%;
+    box-shadow: 0 0 10px var(--primary-colour);
+    border-radius: 2px;
+    background-color: rgba(33, 33, 33, 0.9); /* opacity applied to background colour only */
+    color: var(--secondary-colour);
+}
+
+
+/*-------------------------------------------------------------
+    2.  Form Element 
+---------------------------------------------------------------*/
+
+/* Global form styling */
+#survey-form {
+    display: flex;
+    flex-direction: column;
+    
+    margin: auto;
+    padding: 5% 10%; 
+
+    box-shadow: 0 0 10px var(--primary-colour);
+    background-color: var(--primary-colour);
+    color: var(--secondary-colour);
+    font-size: 1.2rem;
+}
+
+label {
+    text-transform: uppercase;
+}
+
+input {
+    height: 25px;
+    vertical-align: middle;
+    margin: 1% 0;
+    padding: 1%;
+}
+
+/* Individual form element styling */
+
+/* TOP HALF */
+
+/* Margin between input elements and dropdown element */
+#name-label, #email-label, #number-label, #dropdown-label {
+    margin-bottom: 2%;
+}
+
+#name, #email, #number, #dropdown {
+    display: block;
+    height: 35px;
+    font-size: 1rem;
+}
+
+#name, #email {
+    width: clamp(200px, 50%, 100%);
+}
+
+#number, #dropdown {
+    width: clamp(100px, 25%, 100%);
+}
+
+#dropdown{
+    padding: 0 1%;
+    cursor: pointer;
+}
+
+/* BOTTOM HALF */
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 2%;
+    padding: 2%;
+    border: 2px solid var(--secondary-colour);
+}
+
+fieldset label {
+    text-transform: capitalize; /* override label uppercase */
+}
+
+legend {
+    padding: 0 1.5%;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    vertical-align: middle;
+    transform: scale(1.5);
+    cursor: pointer;
+}
+
+textarea {
+    margin-bottom: 2%;
+    padding: 1%;
+    font-size: 1rem;
+}
+
+#submit {
+    padding: 1%;
+    border: none;
+
+    background-color: var(--btn-colour);
+    color: var(--secondary-colour);
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+#submit:hover {
+    transform: scale(1.1);
+}
+
+/*-------------------------------------------------------------
+    3.  Attributes 
+---------------------------------------------------------------*/
+
+.attributes {
+    position: absolute;
+    top: 0;
+    right: 0;
+    max-width: 100%;
+    padding-right: 1%;
+
+    color: var(--primary-colour);
+    font-size: 0.6rem;   
+}
+
+.attributes:hover {
+    top: 10px;
+    right: 60px;
+    transform: scale(1.5);
+}
+
+.attributes a {
+    max-width: 100%;
+    color: rgb(33, 33, 33);
+}
