@@ -7,13 +7,12 @@
         <title>Document</title>
         <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet"> <!-- import Google font --> 
         <link rel="stylesheet" href="style.css"> <!-- import styling -->
-        
     </head>
     <body>
         <div class="wrapper"> <!-- required for parallax -->
             <header class="header">
-                <img src="assets/table.jpg" class="background">
-                <img src="assets/kiwi.png" class="foreground">
+                <img src="assets/table.jpg" class="background" alt="">
+                <img src="assets/kiwi.png" class="foreground" alt="">
 
                 <div class="content">
                     <h1 id="title">Goal Survey</h1> <!-- user story 1 (required) -->
@@ -27,16 +26,16 @@
             <main>
                 <form id="survey-form"> <!-- user story 3 (required) -->
                     <label  id="name-label" for="name">Name <!-- user story 10 / 11 (required) -->
-                        <input id="name" type="text" placeholder="Enter name" required> <!-- user story 4 (required) -->
+                        <input id="name" type="text" placeholder="Enter name" aria-required="true" required> <!-- user story 4 (required) -->
                     </label>
                     <label id="email-label" for="email">Email <!-- user story 10 / 11 (required) -->
-                        <input id="email" type="email" placeholder="Enter email" required> <!-- user story 5 / 6 (required) -->
+                        <input id="email" type="email" placeholder="Enter email" aria-required="true" required> <!-- user story 5 / 6 (required) -->
                     </label>
                     <label id="number-label" for="number">Per week, I go to the gym... <!-- user story 10 / 11 (required) -->
                         <input id="number" type="number" min="1" max="50" placeholder="Enter number" autocomplete="off"> <!-- user story 7 - 9 (required) -->
                     </label>
                     <label id="dropdown-label" for="dropdown">I want to focus on...
-                        <select id="dropdown"> <!-- user story 12 (required) -->
+                        <select id="dropdown" aria-label="select exercise focus"> <!-- user story 12 (required) -->
                             <option value="aerobic">Aerobic</option>
                             <option value="strength">Strength</option>
                             <option value="balance">Balance</option>
@@ -60,20 +59,21 @@
                     <fieldset id="checkbox">
                         <legend>I want to learn more about...</legend>
                             <label for="nutrition">
-                                <input type="checkbox" name="learn" value="nutrition">
+                                <input id="nutrition" type="checkbox" name="learn" value="nutrition">
                                 Nutrition
                             </label>
                             <label for="technique">
-                                <input type="checkbox" name="learn" value="weight-train">
+                                <input id="weight-train" type="checkbox" name="learn" value="weight-train">
                                 Weight Training
                             </label>
                             <label for="weight">
-                                <input type="checkbox" name="learn" value="weight-loss">
+                                <input id="weight-loss" type="checkbox" name="learn" value="weight-loss">
                                 Weight-loss
                             </label>
                     </fieldset>
-                    <label for="comments">Tell us about your goal</label>
-                    <textarea id="comments" placeholder="My goal..." rows="4" cols="50"></textarea> <!-- user story 15 (required) -->
+                    <label for="comments">Tell us about your goal
+                        <textarea id="comments" placeholder="My goal..." rows="4" cols="50"></textarea> <!-- user story 15 (required) -->
+                    </label>
                     <button id="submit"> <!-- user story 16 (required) -->
                         SUBMIT
                     </button>
